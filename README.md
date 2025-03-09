@@ -1,1 +1,1 @@
-The original fork https://github.com/CrazyDev05 @CrazyDev05
+The original fork [@CrazyDev05](https://github.com/CrazyDev05)
