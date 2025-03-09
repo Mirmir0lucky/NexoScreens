@@ -11,19 +11,17 @@ repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/") // Paper
     maven("https://repo.nexomc.com/releases") // Nexo
-    maven("https://repo.dmulloy2.net/repository/public/")
-    maven("https://repo.extendedclip.com/releases/")
+    maven("https://repo.dmulloy2.net/repository/public/") // ProtocolLib
+    maven("https://repo.extendedclip.com/releases/") // PlaceholderAPI
 }
 
 dependencies {
     compileOnly("io.papermc.paper", "paper-api", "1.21.1-R0.1-SNAPSHOT") // Paper
-    compileOnly("com.nexomc","nexo", "1.0.0") {
-        exclude("*", "*")
-    } // Nexo
+    compileOnly("com.nexomc","nexo", "1.0.0") { exclude("*", "*") }// Nexo
+    compileOnly("com.comphenix.protocol","ProtocolLib","5.3.0") // ProtocolLib
+    compileOnly("me.clip","placeholderapi","2.11.6") // PlaceholderAPI
 
-    compileOnly("com.comphenix.protocol:ProtocolLib:5.3.0")
-    compileOnly("me.clip:placeholderapi:2.11.6")
-    testImplementation(kotlin("test"))
+    implementation("org.bstats","bstats-bukkit","3.0.2") // bStats
 }
 
 tasks {
@@ -31,7 +29,7 @@ tasks {
         val props = mapOf(
             "name" to rootProject.name,
             "version" to rootProject.version,
-            "author" to "s.jimin_0402"
+            "author" to "MrJimin"
         )
         inputs.properties(props)
         filteringCharset = "UTF-8"
@@ -41,6 +39,7 @@ tasks {
     }
 
     shadowJar {
+        relocate("org.bstats", "kr.jimin.screens.libs.bstats")
         exclude("META-INF/**")
         exclude("kotlin/**")
         exclude("kotlinx/**")

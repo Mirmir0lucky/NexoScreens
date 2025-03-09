@@ -3,7 +3,6 @@ main: kr.jimin.screens.NexoScreens
 version: '${version}'
 api-version: 1.17
 author: '${author}'
-website: https://discord.gg/w63c637bmr
 depend:
   - Nexo
   - ProtocolLib

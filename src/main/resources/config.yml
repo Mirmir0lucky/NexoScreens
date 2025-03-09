@@ -1,11 +1,39 @@
+# Features that work as default if not set below
 defaults:
+  # invincibility
   invulnerable: true
+  # Moving during screen output
   movement: false
+  # command
+  # can use PlaceholderAPI
+  # It's definitely a console
+  # Take a second rest (delay s)
   commands:
+    # Screen Output Start Command
     start: []
+    # Screen Output End Command
     end: []
 
+# Detailed settings per screen
+# ServerFolder/plugins/Nexo/glyphs/nexoscreens.yml
+# Example: "nexoscreens_fullscreen"
+# Prefix(fixed): "nexoscreens_" , Id: "fullscreen"
 screens:
   fullscreen: {}
   fullscreen_black: {}
   fullscreen_transparent: {}
+
+# Example Setting
+# Assuming you have a test(nexoscreens_test) screen
+#  test:
+#    invulnerable: true
+#    movement: false
+#    commands:
+#      start:
+#        - say %player_name% Hello
+#        - delay 2 # Take a two-second rest
+#        - say %player_name% Hello1
+#      end:
+#        - say %player_name% bye
+#        - delay 2
+#        - say %player_name% bye1

@@ -10,7 +10,7 @@ import org.bukkit.entity.Player
 import org.bukkit.scoreboard.Scoreboard
 import java.util.*
 
-object NMS {
+object ProtocolLib {
     private var scoreboards: WeakHashMap<UUID, Scoreboard> = WeakHashMap()
     private var changeGamemode: Any? = null
 
@@ -20,7 +20,7 @@ object NMS {
             if (fields[0].type != fields[1].type) changeGamemode = fields[4][null]
             else changeGamemode = fields[3][null]
         } catch (e: IllegalAccessException) {
-            System.err.println("Failed to load ScreenEffects NMS.")
+            System.err.println("Failed to load ScreenEffects ProtocolLib")
             e.printStackTrace()
         }
     }

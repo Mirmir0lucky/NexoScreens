@@ -3,6 +3,7 @@ package kr.jimin.screens
 import kr.jimin.screens.command.CommandHandler
 import kr.jimin.screens.listener.EventListener
 import kr.jimin.screens.manager.ScreenManager
+import me.clip.placeholderapi.metrics.bukkit.Metrics
 import org.bukkit.plugin.java.JavaPlugin
 
 class NexoScreens : JavaPlugin() {
@@ -18,6 +19,7 @@ class NexoScreens : JavaPlugin() {
 
     override fun onEnable() {
         INSTANCE = this
+        Metrics(this, 25025)
 
         screenManager = ScreenManager(this)
         commandHandler = CommandHandler(screenManager)

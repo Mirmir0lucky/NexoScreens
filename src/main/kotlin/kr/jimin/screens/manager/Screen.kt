@@ -2,9 +2,9 @@ package kr.jimin.screens.manager
 
 import com.nexomc.nexo.NexoPlugin
 import com.nexomc.nexo.fonts.Glyph
-import kr.jimin.screens.NexoScreens
 import kr.jimin.screens.util.CommandUtils
-import kr.jimin.screens.util.NMS
+import kr.jimin.screens.util.ProtocolLib
+import kr.jimin.screens.util.toMMComponent
 import me.clip.placeholderapi.PlaceholderAPI
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.TextColor
@@ -35,7 +35,7 @@ data class Screen(
         val titleTimes = Title.Times.times(Duration.ofMillis(fadeInMs), Duration.ofMillis(stayMs), Duration.ofMillis(fadeOutMs))
 
         players.forEach { player ->
-            val finalText = if (hasPapi) miniMessage.deserialize(PlaceholderAPI.setPlaceholders(player, miniMessage.serialize(text))) else text
+            val finalText = if (hasPapi) (PlaceholderAPI.setPlaceholders(player, miniMessage.serialize(text))).toMMComponent() else text
             val title = createTitle(color, finalText, titleTimes)
 
             val finalStartCommands = if (hasPapi) startCommands.map { PlaceholderAPI.setPlaceholders(player, it) } else startCommands
@@ -45,7 +45,7 @@ data class Screen(
 
             val oldInvulnerable = player.isInvulnerable
             if (invulnerable) player.isInvulnerable = true
-            NMS.hideHUD(player)
+            ProtocolLib.hideHUD(player)
 
             consumer(player.uniqueId, ScreenView(oldInvulnerable, movement, finalEndCommands, System.currentTimeMillis() + totalMs))
             player.showTitle(title)
@@ -81,6 +81,6 @@ data class ScreenView(
     fun executeEndCommands(player: Player) {
         CommandUtils.runCommands(endCommands)
         if (isInvulnerable) player.isInvulnerable = false
-        NMS.showHUD(player)
+        ProtocolLib.showHUD(player)
     }
 }
