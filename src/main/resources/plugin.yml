@@ -1,0 +1,17 @@
+name: '${name}'
+main: kr.jimin.screens.NexoScreens
+version: '${version}'
+api-version: 1.17
+author: '{author}'
+depend:
+  - Nexo
+softdepend:
+  - PlaceholderAPI
+
+commands:
+  nexoscreens:
+    aliases:
+      - nexos
+      - ns
+    description: Nexo screen effects
+    usage: /<command> [reload|show]
