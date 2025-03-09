@@ -2,9 +2,11 @@ name: '${name}'
 main: kr.jimin.screens.NexoScreens
 version: '${version}'
 api-version: 1.17
-author: '{author}'
+author: '${author}'
+website: https://discord.gg/w63c637bmr
 depend:
   - Nexo
+  - ProtocolLib
 softdepend:
   - PlaceholderAPI
 
@@ -13,5 +15,10 @@ commands:
     aliases:
       - nexos
       - ns
-    description: Nexo screen effects
-    usage: /<command> [reload|show]
+    description: NexoScreens effects command
+    permission: nexoscreens.admin
+
+permissions:
+  nexoscreens.admin:
+    description: NexoScreens effects permissions
+    default: op

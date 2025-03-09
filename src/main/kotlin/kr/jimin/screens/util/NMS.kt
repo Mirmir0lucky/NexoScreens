@@ -51,6 +51,7 @@ object NMS {
         if (scoreboard != null) player.scoreboard = scoreboard
 
         if (player.gameMode == GameMode.SPECTATOR) return
+
         setGamemode(player, gamemodeToId(player.gameMode))
         Bukkit.getScheduler().runTaskLater(
             NexoScreens.INSTANCE,

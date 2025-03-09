@@ -1,6 +1,7 @@
 package kr.jimin.screens.command
 
 import kr.jimin.screens.manager.ScreenManager
+import kr.jimin.screens.util.toMMComponent
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.TextColor
 import net.kyori.adventure.text.minimessage.MiniMessage
@@ -14,11 +15,20 @@ import org.bukkit.entity.Player
 class CommandHandler(private val screenManager: ScreenManager) : CommandExecutor, TabCompleter {
 
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
-        if (args.isEmpty()) return false
+
+        if (sender is Player && !sender.hasPermission("nexoscreens.admin")) return false
+
+        if (args.isEmpty()) {
+            sender.sendMessage("<gradient:#9055FF:#13E2DA>NexoScreens <gray>| <#b8bbc2>Available commands".toMMComponent())
+            sender.sendMessage("<hover:show_text:\"<gray>fill reload command\"><click:SUGGEST_COMMAND:/nexoscreens reload><#6f737d>/nexoscreens <#b8bbc2>reload</click></hover>  <#6f737d>» <#b8bbc2>plugin reload".toMMComponent())
+            sender.sendMessage("<hover:show_text:\"<gray>fill show command\"><click:SUGGEST_COMMAND:/nexoscreens show ><#6f737d>/nexoscreens <#b8bbc2>show <#43c9fa>args</click></hover>  <#6f737d>» <#b8bbc2>show screens".toMMComponent())
+            return false
+        }
+
         when (args[0]) {
             "reload" -> {
                 screenManager.reload()
-                sender.sendMessage("Screens reloaded!")
+                sender.sendMessage("<gradient:#9055FF:#13E2DA>NexoScreens <gray>| <gray>Screens reloaded!".toMMComponent())
                 return true
             }
             "show" -> {
@@ -32,7 +42,7 @@ class CommandHandler(private val screenManager: ScreenManager) : CommandExecutor
                 val text = if (args.size < 8) Component.empty() else MiniMessage.miniMessage().deserialize(args.copyOfRange(7, args.size).joinToString(" "))
 
                 screenManager.show(players, screen, color, text, fadeInTicks, stayTicks, fadeOutTicks)
-                sender.sendMessage("Showing screen!")
+                sender.sendMessage("<gradient:#9055FF:#13E2DA>NexoScreens <gray>| <gray>Showing screen!".toMMComponent())
                 return true
             }
         }
