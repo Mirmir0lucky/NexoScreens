@@ -16,12 +16,13 @@ class CommandHandler(private val screenManager: ScreenManager) : CommandExecutor
 
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
 
-        if (sender is Player && !sender.hasPermission("nexoscreens.admin")) return false
+        if (sender is Player && !sender.hasPermission("nexoscreens.command")) return false
 
         if (args.isEmpty()) {
-            sender.sendMessage("<gradient:#9055FF:#13E2DA>NexoScreens <gray>| <#b8bbc2>Available commands".toMMComponent())
-            sender.sendMessage("<hover:show_text:\"<gray>fill reload command\"><click:SUGGEST_COMMAND:/nexoscreens reload><#6f737d>/nexoscreens <#b8bbc2>reload</click></hover>  <#6f737d>» <#b8bbc2>plugin reload".toMMComponent())
-            sender.sendMessage("<hover:show_text:\"<gray>fill show command\"><click:SUGGEST_COMMAND:/nexoscreens show ><#6f737d>/nexoscreens <#b8bbc2>show <#43c9fa>args</click></hover>  <#6f737d>» <#b8bbc2>show screens".toMMComponent())
+            sender.sendMessage(("<gradient:#9055FF:#13E2DA>NexoScreens <gray>| <#b8bbc2>Available commands\n" +
+                    "<hover:show_text:\"<gray>fill reload command\"><click:SUGGEST_COMMAND:/nexoscreens reload><#6f737d>/nexoscreens <#b8bbc2>reload</click></hover>  <#6f737d>» <#b8bbc2>plugin reload\n" +
+                    "<hover:show_text:\"<gray>fill show command\"><click:SUGGEST_COMMAND:/nexoscreens show ><#6f737d>/nexoscreens <#b8bbc2>show <#43c9fa>args</click></hover>  <#6f737d>» <#b8bbc2>show screens")
+                .toMMComponent())
             return false
         }
 
@@ -55,12 +56,12 @@ class CommandHandler(private val screenManager: ScreenManager) : CommandExecutor
             players.addAll(Bukkit.getOnlinePlayers())
             players
         } else {
-            Bukkit.getPlayer(rawPlayer)?.let { players.add(it); players } ?: null
+            Bukkit.getPlayer(rawPlayer)?.let { players.add(it); players }
         }
     }
 
     private fun CommandSender.usage(): Boolean {
-        sendMessage("Usage: /nexoscreens show <player> <screen> <fadeInTicks> <stayTicks> <fadeOutTicks> <color> [text]")
+        sendMessage("<hover:show_text:\"<gray>fill show command\"><click:SUGGEST_COMMAND:/nexoscreens show ><#6f737d>/ns <#b8bbc2>show <#43c9fa>player <#fa8943>screen <#43fa8c>fadeIn stay fadeOut <#faf443>color <#fa4362>text</click></hover>".toMMComponent())
         return false
     }
 

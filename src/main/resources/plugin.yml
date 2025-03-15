@@ -18,6 +18,5 @@ commands:
     permission: nexoscreens.admin
 
 permissions:
-  nexoscreens.admin:
-    description: NexoScreens effects permissions
+  nexoscreens.command:
     default: op

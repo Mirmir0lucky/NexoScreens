@@ -44,6 +44,7 @@ tasks {
         exclude("kotlin/**")
         exclude("kotlinx/**")
         exclude("org/**")
+        from(rootProject.file("LICENSE"))
     }
 
     build {
@@ -53,6 +54,7 @@ tasks {
                 from(shadowJar.get().archiveFile)
                 // into("C:\\Users\\aa010\\Desktop\\TestItemsadder\\plugins")
                 into("C:\\Users\\aa010\\Desktop\\Nexo\\plugins")
+                // into("C:\\Users\\aa010\\Desktop\\Grass\\plugins")
                 rename { "${rootProject.name}-${rootProject.version}.jar" }
             }
         }
