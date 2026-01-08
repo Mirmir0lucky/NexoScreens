@@ -1,7 +1,7 @@
-package kr.jimin.screens.command
+package com.github.mrjimin.nexoscreens.command
 
-import kr.jimin.screens.manager.ScreenManager
-import kr.jimin.screens.util.toMMComponent
+import com.github.mrjimin.nexoscreens.manager.ScreenManager
+import com.github.mrjimin.nexoscreens.util.toMMComponent
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.TextColor
 import net.kyori.adventure.text.minimessage.MiniMessage

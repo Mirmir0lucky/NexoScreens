@@ -1,0 +1,13 @@
+name: NexoScreens
+version: '${version}'
+api-version: 1.21
+author: mrjimin
+
+main: com.github.mrjimin.nexoscreens.NexoScreens
+loader: com.github.mrjimin.nexoscreens.NexoScreensLoader
+
+dependencies:
+  server:
+    Nexo:
+      load: BEFORE
+      required: true

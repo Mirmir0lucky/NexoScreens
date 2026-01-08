@@ -1,10 +1,10 @@
-package kr.jimin.screens.manager
+package com.github.mrjimin.nexoscreens.manager
 
 import com.nexomc.nexo.NexoPlugin
 import com.nexomc.nexo.fonts.Glyph
-import kr.jimin.screens.util.CommandUtils
-import kr.jimin.screens.util.ProtocolLib
-import kr.jimin.screens.util.toMMComponent
+import com.github.mrjimin.nexoscreens.util.CommandUtils
+import com.github.mrjimin.nexoscreens.util.ProtocolLib
+import com.github.mrjimin.nexoscreens.util.toMMComponent
 import me.clip.placeholderapi.PlaceholderAPI
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.TextColor

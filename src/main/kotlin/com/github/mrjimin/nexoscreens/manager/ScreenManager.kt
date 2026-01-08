@@ -1,6 +1,6 @@
-package kr.jimin.screens.manager
+package com.github.mrjimin.nexoscreens.manager
 
-import kr.jimin.screens.config.ConfigHandler
+import com.github.mrjimin.nexoscreens.config.ConfigHandler
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.TextColor
 import org.bukkit.Bukkit

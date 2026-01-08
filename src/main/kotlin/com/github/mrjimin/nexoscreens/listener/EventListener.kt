@@ -1,6 +1,6 @@
-package kr.jimin.screens.listener
+package com.github.mrjimin.nexoscreens.listener
 
-import kr.jimin.screens.manager.ScreenManager
+import com.github.mrjimin.nexoscreens.manager.ScreenManager
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener

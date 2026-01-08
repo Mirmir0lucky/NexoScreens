@@ -1,4 +1,4 @@
-package kr.jimin.screens.util
+package com.github.mrjimin.nexoscreens.util
 
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage

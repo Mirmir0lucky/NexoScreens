@@ -1,9 +1,9 @@
-package kr.jimin.screens.util
+package com.github.mrjimin.nexoscreens.util
 
 import com.comphenix.protocol.PacketType
 import com.comphenix.protocol.ProtocolLibrary
 import com.comphenix.protocol.events.PacketContainer
-import kr.jimin.screens.NexoScreens
+import com.github.mrjimin.nexoscreens.NexoScreens
 import org.bukkit.Bukkit
 import org.bukkit.GameMode
 import org.bukkit.entity.Player

@@ -1,7 +1,7 @@
-package kr.jimin.screens.config
+package com.github.mrjimin.nexoscreens.config
 
 import com.nexomc.nexo.commands.ReloadCommand
-import kr.jimin.screens.manager.Screen
+import com.github.mrjimin.nexoscreens.manager.Screen
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 import java.nio.file.Files

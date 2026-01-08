@@ -1,11 +1,14 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
-    kotlin("jvm") version "2.1.0"
-    id("io.github.goooler.shadow") version "8.1.8"
+    kotlin("jvm") version "2.3.0"
+    id("com.gradleup.shadow") version "9.2.2"
+    id("java")
+    `java-library`
 }
 
-group = "kr.jimin.screens"
+group = "com.github.mrjimin.nexoscreens"
 version = "1.0.0"
-description = "NexoScreens"
 
 repositories {
     mavenCentral()
@@ -16,51 +19,48 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper", "paper-api", "1.21.1-R0.1-SNAPSHOT") // Paper
-    compileOnly("com.nexomc","nexo", "1.0.0") { exclude("*", "*") }// Nexo
+    compileOnly("io.papermc.paper:paper-api:${rootProject.properties["paper_version"]}-R0.1-SNAPSHOT")
+    compileOnly("com.nexomc:nexo:${rootProject.properties["nexo_version"]}") { exclude("*") }
+
     compileOnly("com.comphenix.protocol","ProtocolLib","5.3.0") // ProtocolLib
     compileOnly("me.clip","placeholderapi","2.11.6") // PlaceholderAPI
 
     implementation("org.bstats","bstats-bukkit","3.0.2") // bStats
 }
 
-tasks {
-    processResources {
-        val props = mapOf(
-            "name" to rootProject.name,
-            "version" to rootProject.version,
-            "author" to "MrJimin"
-        )
-        inputs.properties(props)
-        filteringCharset = "UTF-8"
-        filesMatching("plugin.yml") {
-            expand(props)
-        }
-    }
-
-    shadowJar {
-        relocate("org.bstats", "kr.jimin.screens.libs.bstats")
-        exclude("META-INF/**")
-        exclude("kotlin/**")
-        exclude("kotlinx/**")
-        exclude("org/**")
-        from(rootProject.file("LICENSE"))
-    }
-
-    build {
-        dependsOn(shadowJar)
-        doLast {
-            copy {
-                from(shadowJar.get().archiveFile)
-                // into("C:\\Users\\aa010\\Desktop\\TestItemsadder\\plugins")
-                into("C:\\Users\\aa010\\Desktop\\Nexo\\plugins")
-                // into("C:\\Users\\aa010\\Desktop\\Grass\\plugins")
-                rename { "${rootProject.name}-${rootProject.version}.jar" }
-            }
-        }
-    }
-
-}
 kotlin {
     jvmToolchain(21)
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+val shadowJarPlugin = tasks.register<ShadowJar>("shadowJarPlugin") {
+    archiveFileName.set("NexoScreen-${project.version}.jar")
+
+    destinationDirectory.set(file("${project.rootDir}/target"))
+
+    from(sourceSets.main.get().output)
+    configurations = listOf(project.configurations.runtimeClasspath.get())
+
+}
+
+tasks.named("build") {
+    dependsOn(shadowJarPlugin)
+}
+
+tasks.compileJava {
+    options.encoding = "UTF-8"
+    options.release.set(21)
+}
+
+tasks.processResources {
+    val props = mapOf("version" to version)
+    inputs.properties(props)
+    filteringCharset = "UTF-8"
+    filesMatching("paper-plugin.yml") {
+        expand(props)
+    }
 }

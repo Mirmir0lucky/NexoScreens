@@ -1,8 +1,7 @@
-package kr.jimin.screens.util
+package com.github.mrjimin.nexoscreens.util
 
-import kr.jimin.screens.NexoScreens
+import com.github.mrjimin.nexoscreens.NexoScreens
 import org.bukkit.Bukkit
-import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 object CommandUtils {

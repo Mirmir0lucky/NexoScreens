@@ -3,3 +3,5 @@ plugins {
 }
 rootProject.name = "NexoScreens"
 
+include("api")
+include("nms:v1_21_8")

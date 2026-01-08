@@ -1,8 +1,8 @@
-package kr.jimin.screens
+package com.github.mrjimin.nexoscreens
 
-import kr.jimin.screens.command.CommandHandler
-import kr.jimin.screens.listener.EventListener
-import kr.jimin.screens.manager.ScreenManager
+import com.github.mrjimin.nexoscreens.command.CommandHandler
+import com.github.mrjimin.nexoscreens.listener.EventListener
+import com.github.mrjimin.nexoscreens.manager.ScreenManager
 import me.clip.placeholderapi.metrics.bukkit.Metrics
 import org.bukkit.plugin.java.JavaPlugin
 
