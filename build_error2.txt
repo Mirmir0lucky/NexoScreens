@@ -1,0 +1,70 @@
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :api:compileKotlin UP-TO-DATE
+> Task :api:compileJava NO-SOURCE
+> Task :api:processResources NO-SOURCE
+> Task :api:classes UP-TO-DATE
+> Task :api:jar UP-TO-DATE
+> Task :nms:v1_21_8:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :nms:v1_21_8:paperweightUserdevSetup UP-TO-DATE
+> Task :nms:v1_21_8:compileKotlin UP-TO-DATE
+> Task :nms:v1_21_8:compileJava NO-SOURCE
+> Task :nms:v1_21_8:processResources NO-SOURCE
+> Task :nms:v1_21_8:classes UP-TO-DATE
+> Task :nms:v1_21_8:jar UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :api:assemble UP-TO-DATE
+> Task :api:compileTestKotlin NO-SOURCE
+> Task :api:compileTestJava NO-SOURCE
+> Task :api:processTestResources NO-SOURCE
+> Task :api:testClasses UP-TO-DATE
+> Task :api:test NO-SOURCE
+> Task :api:check UP-TO-DATE
+> Task :api:build UP-TO-DATE
+> Task :nms:v1_21_8:assemble UP-TO-DATE
+> Task :nms:v1_21_8:compileTestKotlin NO-SOURCE
+> Task :nms:v1_21_8:compileTestJava NO-SOURCE
+> Task :nms:v1_21_8:processTestResources NO-SOURCE
+> Task :nms:v1_21_8:testClasses UP-TO-DATE
+> Task :nms:v1_21_8:test NO-SOURCE
+> Task :nms:v1_21_8:check UP-TO-DATE
+> Task :nms:v1_21_8:build UP-TO-DATE
+
+> Task :compileKotlin FAILED
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/manager/Screen.kt:4:30 Unresolved reference 'Glyph'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/manager/Screen.kt:26:24 Unresolved reference 'Glyph'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/manager/Screen.kt:58:57 Unresolved reference 'character'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/manager/Screen.kt:58:70 Unresolved reference 'font'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/manager/Screen.kt:58:75 Smart cast to 'TypeVariable(K)?' is impossible, because 'glyph' is a mutable property that could be mutated concurrently.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/manager/Screen.kt:58:83 Unresolved reference 'font'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:3:12 Unresolved reference 'comphenix'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:4:12 Unresolved reference 'comphenix'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:5:12 Unresolved reference 'comphenix'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:19:26 Unresolved reference 'PacketType'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:20:17 Cannot infer type for type parameter 'V'. Specify it explicitly.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:20:27 Unresolved reference 'type'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:20:35 Cannot infer type for type parameter 'V'. Specify it explicitly.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:20:45 Unresolved reference 'type'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:20:68 Cannot infer type for type parameter 'V'. Specify it explicitly.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:21:35 Cannot infer type for type parameter 'V'. Specify it explicitly.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:29:22 Unresolved reference 'PacketContainer'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:29:38 Unresolved reference 'PacketType'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:71:53 Unresolved reference 'PacketContainer'.
+e: file:///D:/NexoScreens/src/main/kotlin/com/github/mrjimin/nexoscreens/util/ProtocolLib.kt:73:13 Unresolved reference 'ProtocolLibrary'.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (Powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 7s
+7 actionable tasks: 1 executed, 6 up-to-date

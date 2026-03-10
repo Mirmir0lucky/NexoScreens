@@ -1,9 +1,9 @@
 package com.github.mrjimin.nexoscreens.manager
 
 import com.nexomc.nexo.NexoPlugin
-import com.nexomc.nexo.fonts.Glyph
+import com.nexomc.nexo.glyphs.Glyph
 import com.github.mrjimin.nexoscreens.util.CommandUtils
-import com.github.mrjimin.nexoscreens.util.ProtocolLib
+import com.github.mrjimin.nexoscreens.util.VisibilityManager
 import com.github.mrjimin.nexoscreens.util.toMMComponent
 import me.clip.placeholderapi.PlaceholderAPI
 import net.kyori.adventure.text.Component
@@ -45,7 +45,7 @@ data class Screen(
 
             val oldInvulnerable = player.isInvulnerable
             if (invulnerable) player.isInvulnerable = true
-            ProtocolLib.hideHUD(player)
+            VisibilityManager.hideHUD(player)
 
             consumer(player.uniqueId, ScreenView(oldInvulnerable, movement, finalEndCommands, System.currentTimeMillis() + totalMs))
             player.showTitle(title)
@@ -55,7 +55,7 @@ data class Screen(
     private fun createTitle(color: TextColor, text: Component, times: Title.Times): Title {
         glyph = glyph ?: NexoPlugin.instance().fontManager().glyphFromID("nexoscreens_$id")
                 ?: throw IllegalStateException("Glyph not found: nexoscreens_$id")
-        return Title.title(text, Component.text(glyph!!.character()).font(glyph!!.font()).color(color), times)
+        return Title.title(text, Component.text(glyph!!.chars[0]).font(glyph!!.font).color(color), times)
     }
 
     companion object {
@@ -81,6 +81,6 @@ data class ScreenView(
     fun executeEndCommands(player: Player) {
         CommandUtils.runCommands(endCommands)
         if (isInvulnerable) player.isInvulnerable = false
-        ProtocolLib.showHUD(player)
+        VisibilityManager.showHUD(player)
     }
 }

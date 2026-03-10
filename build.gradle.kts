@@ -22,7 +22,9 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:${rootProject.properties["paper_version"]}-R0.1-SNAPSHOT")
     compileOnly("com.nexomc:nexo:${rootProject.properties["nexo_version"]}") { exclude("*") }
 
-    compileOnly("com.comphenix.protocol","ProtocolLib","5.3.0") // ProtocolLib
+    implementation(project(":api"))
+    implementation(project(":nms:v1_21_8"))
+
     compileOnly("me.clip","placeholderapi","2.11.6") // PlaceholderAPI
 
     implementation("org.bstats","bstats-bukkit","3.0.2") // bStats
